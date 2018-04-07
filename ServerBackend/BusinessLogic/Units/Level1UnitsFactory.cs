@@ -37,6 +37,38 @@ namespace BusinessLogic.Units
             };
         }
 
+        public static Enemy NewCacti()
+        {
+            return new Enemy()
+            {
+                Pos = new Pos(20, -2),
+                MaxHealthPoints = 60,
+                HitPoints = 4,
+                HealthPoints = 60,
+                Id = Guid.NewGuid(),
+                Reward = 2,
+                MoveRange = 30,
+                Speed = 0,
+                ObjectType = ObjectType.Cacti
+            };
+        }
+
+        public static Enemy NewItem()
+        {
+            return new Enemy()
+            {
+                Pos = new Pos(-60, -2),
+                MaxHealthPoints = 50,
+                HitPoints = 3,
+                MoveRange = 20,
+                HealthPoints = 50,
+                Id = Guid.NewGuid(),
+                Reward = 2,
+                Speed = 0,
+                ObjectType = ObjectType.Guard
+            };
+        }
+
         public static IEnumerable<Enemy> NewBugsLevel1()
         {
             foreach (var xCoord in new[]{-45,-15, 48, 70})

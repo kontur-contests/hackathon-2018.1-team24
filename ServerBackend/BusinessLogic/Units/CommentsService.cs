@@ -14,7 +14,7 @@ namespace BusinessLogic.Units
                     return FromBug(gameObject);
                 case ObjectType.Bitcoin:
                     return gameObject.Reward.ToString();
-                case ObjectType.Kachok:
+                case ObjectType.Clawn:
                     return FromKachok(gameObject);
                 default:
                     return "";

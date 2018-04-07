@@ -9,13 +9,8 @@
         Enemy,
         Guard,
         Bug,
-        Kachok,
+        Clawn,
         Cacti,
         Pechenka
-    }
-
-    public enum EnemyType
-    {
-        
     }
 }

@@ -50,7 +50,7 @@ namespace BusinessLogic
                     Pos = new Pos(20, 20)
                 },
                 UnitsFactory.NewGuard(),
-                UnitsFactory.NewKachok(),
+                UnitsFactory.NewClawn(),
                 new StaticObject
                 {
                     ObjectType = ObjectType.Platform,
