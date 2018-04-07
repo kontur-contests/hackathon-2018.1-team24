@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 using BusinessLogic.Units;
 using GameCoreLibrary;
 
@@ -42,6 +43,7 @@ namespace BusinessLogic
                             Pos = new Pos(20, 20)
                         },
                         UnitsFactory.NewGuard(),
+                        UnitsFactory.NewKachok(),
                         new StaticObject
                         {
                             ObjectType = ObjectType.Platform,
@@ -50,7 +52,7 @@ namespace BusinessLogic
                             IsAlive = true,
                             Pos = new Pos(200, 20)
                         },
-                    }
+                    }.Concat(UnitsFactory.NewBugsLevel1()).ToArray()
                 }
             }
         };

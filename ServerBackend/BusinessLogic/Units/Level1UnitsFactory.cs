@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using GameCoreLibrary;
 
 namespace BusinessLogic.Units
@@ -9,12 +10,12 @@ namespace BusinessLogic.Units
         {
             return new Enemy()
             {
-                Pos = new Pos(-2, -3),
+                Pos = new Pos(-60, -2),
                 MaxHealthPoints = 50,
                 HitPoints = 3,
                 HealthPoints = 50,
                 Id = Guid.NewGuid(),
-                Reward = 1,
+                Reward = 2,
                 Speed = 2,
                 ObjectType = ObjectType.Guard
             };
@@ -24,30 +25,34 @@ namespace BusinessLogic.Units
         {
             return new Enemy()
             {
-                Pos = new Pos(90, -3),
+                Pos = new Pos(20, -3),
                 MaxHealthPoints = 70,
                 HitPoints = 6,
-                HealthPoints = 90,
+                HealthPoints = 70,
                 Id = Guid.NewGuid(),
-                Reward = 1,
+                Reward = 3,
                 Speed = 2,
                 ObjectType = ObjectType.Guard
             };
         }
 
-        public static Enemy NewBugs()
+        public static IEnumerable<Enemy> NewBugsLevel1()
         {
-            return new Enemy()
+            foreach (var xCoord in new[]{-45,-15, 48, 70})
             {
-                Pos = new Pos(90, -3),
-                MaxHealthPoints = 70,
-                HitPoints = 6,
-                HealthPoints = 90,
-                Id = Guid.NewGuid(),
-                Reward = 1,
-                Speed = 2,
-                ObjectType = ObjectType.Bug
-            };
+                yield return new Enemy
+                {
+                    Pos = new Pos(xCoord, -3),
+                    MaxHealthPoints = 20,
+                    HitPoints = 2,
+                    HealthPoints = 20,
+                    Id = Guid.NewGuid(),
+                    Reward = 1,
+                    Speed = 1,
+                    ObjectType = ObjectType.Bug
+                };
+            }
+            
         }
     }
 }

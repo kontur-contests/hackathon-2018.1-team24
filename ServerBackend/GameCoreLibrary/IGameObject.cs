@@ -17,8 +17,8 @@ namespace GameCoreLibrary
         double HealthPercent { get; }
 
         int HitPoints { get; set; }
-        
-        int Speed { get; set; }
+
+        double Speed { get; set; }
         int Reward { get; set; }
 
         bool Hit(IGameObject gameObject);

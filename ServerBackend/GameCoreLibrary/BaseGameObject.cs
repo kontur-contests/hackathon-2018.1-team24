@@ -15,7 +15,7 @@ namespace GameCoreLibrary
         public int MaxHealthPoints { get; set; }
         public double HealthPercent => (double) HealthPoints / MaxHealthPoints;
         public int HitPoints { get; set; }
-        public int Speed { get; set; }
+        public double Speed { get; set; }
         public int Reward { get; set; }
 
         public bool Hit(IGameObject gameObject)
