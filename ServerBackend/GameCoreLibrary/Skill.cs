@@ -3,6 +3,6 @@
     public enum Skill
     {
         DoubleHit = 1,
-        DoubleHealth = 2,
+        DoubleHealth = 2
     }
 }

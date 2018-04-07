@@ -1,17 +1,17 @@
 ﻿using System.Collections.Generic;
+using BusinessLogic.Units;
 using GameCoreLibrary;
 
 namespace BusinessLogic
 {
     public class LevelGenerator
     {
-        
         public GameLevel[] GetStaticLevels()
         {
             //TODO много уровней
             return new[] {GenerateLevel((int) LevelFloor.Entrance)};
         }
-        
+
         public GameLevel[] GenerateLevels()
         {
             //TODO много уровней
@@ -31,7 +31,7 @@ namespace BusinessLogic
             {
                 1, new Level
                 {
-                    GameObjects = new[]
+                    GameObjects = new IGameObject[]
                     {
                         new StaticObject
                         {
@@ -41,6 +41,7 @@ namespace BusinessLogic
                             IsAlive = true,
                             Pos = new Pos(20, 20)
                         },
+                        UnitsFactory.NewGuard(),
                         new StaticObject
                         {
                             ObjectType = ObjectType.Platform,
