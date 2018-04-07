@@ -13,8 +13,10 @@ public class LevelSerialized : MonoBehaviour
     [Serializable]
     public class LevelSetup
     {
-        public LevelFloor levelFloor;
-        public List<LevelItem.LevelItemSerializable> items;
+        public LevelFloor levelFloor { get; set; }
+        public float X { get; set; }
+        public float Y { get; set; }
+        public Guid PlayerId { get; set; }
     }
 
     public LevelSetup levelSetup;
