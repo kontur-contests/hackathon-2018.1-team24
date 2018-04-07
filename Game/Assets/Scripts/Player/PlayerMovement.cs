@@ -7,7 +7,8 @@ public class PlayerMovement : MonoBehaviour
     public float maxSpeed = 5f;
     public float jumpSpeed = 30f;
 
-    private bool jump;
+    public bool jump { get; private set; }
+    public bool walk { get; private set; }
 
     private Transform groundCheck;
     private bool grounded = false;
@@ -33,6 +34,9 @@ public class PlayerMovement : MonoBehaviour
         }
         
         rig.velocity = move;
+
+        walk = Mathf.Abs(Mathf.Sign(rig.velocity.x)) == 1 ? true : false;
+
     }
 
 }
