@@ -1,0 +1,28 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MultiplayerSynchronizer", "MultiplayerSynchronizer\MultiplayerSynchronizer.csproj", "{8ECE027A-BC65-49AC-B5A1-5A16E3E075BB}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BusinessLogic", "BusinessLogic\BusinessLogic.csproj", "{9752256E-B291-45B9-B0C6-A47872CDEEC2}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GameCoreLibrary", "GameCoreLibrary\GameCoreLibrary.csproj", "{3D1E8E4A-CE02-4A9E-BABC-47EEB7A9E7CB}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{8ECE027A-BC65-49AC-B5A1-5A16E3E075BB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8ECE027A-BC65-49AC-B5A1-5A16E3E075BB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8ECE027A-BC65-49AC-B5A1-5A16E3E075BB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8ECE027A-BC65-49AC-B5A1-5A16E3E075BB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9752256E-B291-45B9-B0C6-A47872CDEEC2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9752256E-B291-45B9-B0C6-A47872CDEEC2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9752256E-B291-45B9-B0C6-A47872CDEEC2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9752256E-B291-45B9-B0C6-A47872CDEEC2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3D1E8E4A-CE02-4A9E-BABC-47EEB7A9E7CB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3D1E8E4A-CE02-4A9E-BABC-47EEB7A9E7CB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3D1E8E4A-CE02-4A9E-BABC-47EEB7A9E7CB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3D1E8E4A-CE02-4A9E-BABC-47EEB7A9E7CB}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
