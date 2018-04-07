@@ -39,6 +39,7 @@ GameObject:
   - component: {fileID: 212344572450008606}
   - component: {fileID: 61730712492120540}
   - component: {fileID: 114512326289648366}
+  - component: {fileID: 114437846822024282}
   m_Layer: 0
   m_Name: Guard
   m_TagString: Enemy
@@ -53,7 +54,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1265473583471754}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -64.54, y: -2.17, z: 0}
+  m_LocalPosition: {x: -66.34, y: -2.17, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4523696568436920}
@@ -98,6 +99,23 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 2.405983, y: 6.4}
   m_EdgeRadius: 0
+--- !u!114 &114437846822024282
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1265473583471754}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c8aa63c8a85929c4799ce2764f9023fd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  levelItem:
+    baseGameObject: 5
+    enemyParams:
+      speed: 0
+      hit: 0
+      hp: 0
 --- !u!114 &114512326289648366
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -109,10 +127,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0d939f7563b632046adc02c2a3da3d30, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 0
-  hp: 15
-  hit: 0
-  particle: {fileID: 198515692467408796}
+  enemyParams:
+    speed: 0
+    hit: 0
+    hp: 15
+  particles: {fileID: 198515692467408796}
 --- !u!198 &198515692467408796
 ParticleSystem:
   m_ObjectHideFlags: 1

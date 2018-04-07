@@ -40,6 +40,7 @@ GameObject:
   - component: {fileID: 61712225263987526}
   - component: {fileID: 114701270852692650}
   - component: {fileID: 95438766840147244}
+  - component: {fileID: 114063445062240548}
   m_Layer: 0
   m_Name: Clown
   m_TagString: Enemy
@@ -116,6 +117,23 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
+--- !u!114 &114063445062240548
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1574140158206856}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c8aa63c8a85929c4799ce2764f9023fd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  levelItem:
+    baseGameObject: 7
+    enemyParams:
+      speed: 0
+      hit: 0
+      hp: 0
 --- !u!114 &114701270852692650
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -127,11 +145,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1d97ae6fcbc35ec42818d7c3ffcaf2b5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 5
-  hp: 20
-  hit: 5
+  enemyParams:
+    speed: 5
+    hit: 5
+    hp: 20
   distance: 10
-  particleSystem: {fileID: 198791912814267110}
+  particles: {fileID: 198791912814267110}
 --- !u!198 &198791912814267110
 ParticleSystem:
   m_ObjectHideFlags: 1

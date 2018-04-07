@@ -39,6 +39,7 @@ GameObject:
   - component: {fileID: 58580376664038048}
   - component: {fileID: 198781664916025182}
   - component: {fileID: 199127245898127152}
+  - component: {fileID: 114259108262394370}
   m_Layer: 0
   m_Name: bitcoin
   m_TagString: Bitcoin
@@ -53,7 +54,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1881395150728750}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -15.891441, y: -3.2779038, z: 9.96875}
+  m_LocalPosition: {x: -78.42, y: -3.01, z: 9.96875}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4310035753509794}
@@ -105,6 +106,23 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
+--- !u!114 &114259108262394370
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1881395150728750}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c8aa63c8a85929c4799ce2764f9023fd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  levelItem:
+    baseGameObject: 2
+    enemyParams:
+      speed: 0
+      hit: 0
+      hp: 0
 --- !u!198 &198781664916025182
 ParticleSystem:
   m_ObjectHideFlags: 1
@@ -165,7 +183,7 @@ ParticleSystem:
   moveWithTransform: 0
   moveWithCustomTransform: {fileID: 0}
   scalingMode: 1
-  randomSeed: 1567915283
+  randomSeed: -1989354265
   InitialModule:
     serializedVersion: 3
     enabled: 1

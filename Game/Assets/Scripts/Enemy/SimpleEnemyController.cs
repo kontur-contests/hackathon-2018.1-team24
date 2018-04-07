@@ -5,26 +5,18 @@ using UnityEngine;
 
 public class SimpleEnemyController :  EnemyBase
 {
-    public float speed;
-    public float hp;
-    public float hit;
-
-    public ParticleSystem particle;
+    public EnemyParams enemyParams;
+    public ParticleSystem particles;
 
     void Start()
     {
-        Set(speed, hit, hp);
+        Set(enemyParams.speed, enemyParams.hit, enemyParams.hp);
         OnChangeHP += Onchage;
     }
 
     private void Onchage()
     {
-        particle.Play();
+        particles.Play();
         if (IsAlive == false) Destroy(gameObject);
-    }
-
-    void Update()
-    {
-
     }
 }

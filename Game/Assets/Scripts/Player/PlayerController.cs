@@ -5,6 +5,7 @@ using UnityEngine;
 
 public class PlayerController : EnemyBase
 {
+    public EnemyParams enemyParams;
     public PlayerMovement playerMovement;
     private Animator anim;
     public ParticleSystem particle;
@@ -13,7 +14,7 @@ public class PlayerController : EnemyBase
     {
         playerMovement = GetComponent<PlayerMovement>();
         anim = GetComponent<Animator>();
-        Set(0, 5, 50);
+        Set(enemyParams.speed, enemyParams.hit, enemyParams.hp);
         OnChangeHP += delegate { particle.Play(); if (!IsAlive) Destroy(gameObject); PlayerHPBar.Instance?.Set(1f - (float) (Hp / MaxHp)); };
 	}
 
