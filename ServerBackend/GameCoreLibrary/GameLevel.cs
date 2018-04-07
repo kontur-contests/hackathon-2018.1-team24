@@ -5,35 +5,26 @@ namespace GameCoreLibrary
 {
     public class GameLevel
     {
-        public LevelFloor LevelFloor  { get; set; }
+        public List<IGameObject> GameObjects
+        {
+            get => gameObjects ?? (gameObjects = new List<IGameObject>());
+            set => gameObjects = value;
+        }
 
-        public List<IGameObject> GameObjects { get; set; }
+        private List<IGameObject> gameObjects { get; set; }
 
+        //For serializer only
         public GameLevel()
         {
-            
         }
+
         public GameLevel(Level level)
         {
-            GameObjects = CloneObjects(level.GameObjects?? new IGameObject[]{});
-            LevelFloor = level.LevelFloor;
+            GameObjects = level.GameObjects.Select(x => x.Clone()).ToList();
         }
 
-        private static List<IGameObject> CloneObjects(IEnumerable<IGameObject> objects)
+        public void DoSync(IList<IGameObject> gameObjects)
         {
-            return objects.Select(x => x.Clone()).ToList();
-        }
-
-        public void DoSync(GameLevel gameLevel)
-        {
-            if (LevelFloor != gameLevel.LevelFloor)
-            {
-                GameObjects = CloneObjects(gameLevel.GameObjects);
-                LevelFloor = gameLevel.LevelFloor;
-                return;
-            }
-
-            var gameObjects = gameLevel.GameObjects;
             foreach (var gObject in gameObjects)
             {
                 var existing = GameObjects.Find(x => x.Id == gObject.Id);
@@ -46,7 +37,7 @@ namespace GameCoreLibrary
                 }
             }
 
-            foreach (var remove in GameObjects.Where(x=> x.ObjectType != ObjectType.Player && !gameObjects.Select(go => go.Id).Contains(x.Id)).ToArray())
+            foreach (var remove in GameObjects.Where(x=> x.ObjectType != ObjectType.Player && gameObjects.All(go => go.Id != x.Id)).ToArray())
             {
                 GameObjects.Remove(remove);
             }

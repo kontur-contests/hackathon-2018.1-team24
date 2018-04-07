@@ -5,7 +5,7 @@ namespace GameCoreLibrary
 {
     public class Enemy : BaseGameObject
     {
-        public override ObjectType ObjectType { get; set; }
+        public override ObjectType ObjectType { get; set; } = ObjectType.Enemy;
 
         public Pos FindMove(GameLevel game, TimeSpan timeDelta)
         {

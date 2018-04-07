@@ -16,14 +16,12 @@ namespace BusinessLogic
             foreach (var element in jarray)
             {
                 Enum.TryParse(element["ObjectType"].ToString(), out ObjectType objectType);
-                var gameObject = (IGameObject) JsonConvert.DeserializeObject(value, Deserializers.Serializers[objectType]);
+                var gameObject = (IGameObject)element.ToObject(Deserializers.Serializers[objectType]);
                 gameLevel.GameObjects.Add(gameObject);
             }
-
             return gameLevel;
-
         }
-    }    
+    }
 
     public static class Deserializers
     {
@@ -33,6 +31,7 @@ namespace BusinessLogic
             {ObjectType.Platform, typeof(StaticObject)},
             {ObjectType.Table, typeof(StaticObject)},
             {ObjectType.Player, typeof(Player)},
+            {ObjectType.Enemy, typeof(Enemy)},
         };
     }
 }

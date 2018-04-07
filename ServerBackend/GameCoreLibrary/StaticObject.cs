@@ -8,7 +8,6 @@ namespace GameCoreLibrary
 
         public StaticObject()
         {
-            Id = Guid.NewGuid();
-        }
+         }
     }
 }

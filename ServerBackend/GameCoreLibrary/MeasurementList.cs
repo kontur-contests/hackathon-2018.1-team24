@@ -11,6 +11,7 @@ namespace GameCoreLibrary
                 {ObjectType.Player, new Measurement {Height = 128, Width = 64,}},
                 {ObjectType.Table, new Measurement {Height = 25, Width = 64,}},
                 {ObjectType.Bitcoin, new Measurement {Height = 128, Width = 64,}},
+                {ObjectType.Enemy, new Measurement {Height = 128, Width = 64,}},
             };
     };
 }
