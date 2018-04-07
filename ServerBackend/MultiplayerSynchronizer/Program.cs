@@ -61,7 +61,7 @@ namespace MultiplayerSynchronizer
         {
             try
             {
-                var deserialized = (PlayerState)JsonConvert.DeserializeObject(message);
+                var deserialized = JsonConvert.DeserializeObject<PlayerState>(message);
 
                 StateStorage.UpdateOrAdd(socket, deserialized);
             }

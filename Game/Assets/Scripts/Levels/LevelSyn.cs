@@ -71,10 +71,10 @@ public class LevelSyn : MonoBehaviour
 
     private void OnMessage(object sender, MessageEventArgs e)
     {
-        print("Чето пришло");
         if (e.IsText)
         {
             var list = JsonConvert.DeserializeObject<List<PlayerState>>(e.Data);
+            print(list.Count);
             var addList = new List<PlayerState>();
             var removeList = new List<PlayerSync>();
 
