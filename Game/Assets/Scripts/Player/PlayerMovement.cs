@@ -35,8 +35,7 @@ public class PlayerMovement : MonoBehaviour
         
         rig.velocity = move;
 
-        walk = Mathf.Abs(Mathf.Sign(rig.velocity.x)) == 1 ? true : false;
-
+        walk = Mathf.Abs(move.x) == 0 ? false : true;
     }
 
 }

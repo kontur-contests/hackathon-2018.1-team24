@@ -5,7 +5,7 @@ AnimatorController:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: Player
+  m_Name: Clown
   serializedVersion: 5
   m_AnimatorParameters:
   - m_Name: Attack
@@ -143,7 +143,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: bc8691f064dbec24f88c13098c59408f, type: 2}
+  m_Motion: {fileID: 7400000, guid: 73d76b698b7c0c44bb54cec9588d675f, type: 2}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
@@ -168,7 +168,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: 9e2b2cf167b841b48a562c1a1f5ced24, type: 2}
+  m_Motion: {fileID: 7400000, guid: a1b19d24e6d0a9740a092485946abb01, type: 2}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
@@ -194,7 +194,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: 936f7408d91d7b84299ba82091aceb1e, type: 2}
+  m_Motion: {fileID: 7400000, guid: 9daea2fbd3eb8444c98c2b13ca8f394e, type: 2}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 

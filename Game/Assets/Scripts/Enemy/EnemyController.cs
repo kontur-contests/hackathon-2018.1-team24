@@ -11,6 +11,8 @@ public class EnemyController : SimpleEnemy
     public float hp;
     public float hit;
 
+    public ParticleSystem particleSystem;
+
     void Start ()
     {
         Set(speed, hit, hp);
@@ -19,6 +21,7 @@ public class EnemyController : SimpleEnemy
 
     private void Onchage()
     {
+        particleSystem.Play();
         if (IsAlive == false) Destroy(gameObject);
     }
 
