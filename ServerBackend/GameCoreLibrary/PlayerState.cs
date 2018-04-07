@@ -4,9 +4,11 @@ namespace GameCoreLibrary
 {
     public class PlayerState
     {
-        Guid PlayerId { get; set; }
-        float X { get; set; }
-        float Y { get; set; }
-        bool IsAlive { get; set; }
+        public LevelFloor Level { get; set; }
+        public Guid PlayerId { get; set; }
+        public float X { get; set; }
+        public float Y { get; set; }
+        public bool IsAlive { get; set; }
+        public int Job { get; set; }
     }
 }

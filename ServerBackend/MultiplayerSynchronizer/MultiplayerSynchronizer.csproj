@@ -8,4 +8,8 @@
       <HintPath>..\Lib\Fleck.dll</HintPath>
     </Reference>
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\BusinessLogic\BusinessLogic.csproj" />
+    <ProjectReference Include="..\GameCoreLibrary\GameCoreLibrary.csproj" />
+  </ItemGroup>
 </Project>
