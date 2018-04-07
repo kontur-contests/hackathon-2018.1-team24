@@ -5,6 +5,7 @@ namespace GameCoreLibrary
 {
     public abstract class BaseGameObject : IGameObject
     {
+        public abstract ObjectType ObjectType { get; set; }
         public Guid Id { get; set; }
         public float X { get; set; }
         public float Y { get; set; }
@@ -12,13 +13,13 @@ namespace GameCoreLibrary
         public int HealthPoints { get; set; }
         public int HitPoints { get; set; }
 
-        public int Hit()
+        public int Hit(IGameObject gameObject)
         {
             throw new NotImplementedException();
         }
 
-        public float Height { get; }
-        public float Width { get; }
+        public float Height => MeasurementList.Measurements[ObjectType].Height;
+        public float Width => MeasurementList.Measurements[ObjectType].Width;
 
         public IGameObject Clone()
         {

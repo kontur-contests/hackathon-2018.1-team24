@@ -2,11 +2,6 @@
 {
     public class StaticObject : BaseGameObject
     {
-        public StaticObjectType StaticObjectType { get; set; }
-    }
-
-    public enum StaticObjectType
-    {
-        Table,
+        public override ObjectType ObjectType { get; set; }
     }
 }
