@@ -11,7 +11,8 @@ public class PlayerHPBar : MonoBehaviour
 	void Awake ()
     {
         Instance = this;
-	}
+        Set(0);
+    }
 
     public void Set(float value)
     {

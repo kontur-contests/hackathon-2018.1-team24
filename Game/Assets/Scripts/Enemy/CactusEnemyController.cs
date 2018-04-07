@@ -6,7 +6,8 @@ using UnityEngine;
 public class CactusEnemyController : EnemyBase
 {
     public int hit;
-    
+    private float release;
+
 	void Start ()
     {
         Set(0, hit, 0);
@@ -14,8 +15,12 @@ public class CactusEnemyController : EnemyBase
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        var enemy = collision.gameObject.GetComponent<EnemyBase>();
-        enemy?.ApplyHit(hit);
+        if (release < Time.time)
+        {
+            var enemy = collision.gameObject.GetComponent<EnemyBase>();
+            enemy?.ApplyHit(hit);
+            release = Time.time + 1f;
+        }
     }
 
 }

@@ -11,11 +11,13 @@ namespace Assets.Scripts.Enemy
             Speed = speed;
             Hit = hit;
             Hp = hp;
+            MaxHp = Hp;
         }
 
         public double Speed { get; private set; }
         public double Hit { get; private set; }
         public double Hp { get; private set; }
+        public double MaxHp { get; private set; }
         public Action OnChangeHP = delegate { };
 
         public bool IsAlive

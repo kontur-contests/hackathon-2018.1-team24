@@ -12,6 +12,8 @@ public class BitcoinCountUI : MonoBehaviour
 
     private void Awake()
     {
+        count = 0;
+        textCount.text = count.ToString();
         Instance = this;
     }
 

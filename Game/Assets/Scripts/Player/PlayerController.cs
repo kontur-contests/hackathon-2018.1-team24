@@ -14,7 +14,7 @@ public class PlayerController : EnemyBase
         playerMovement = GetComponent<PlayerMovement>();
         anim = GetComponent<Animator>();
         Set(0, 5, 50);
-        OnChangeHP += delegate { particle.Play(); if (!IsAlive) Destroy(gameObject); };
+        OnChangeHP += delegate { particle.Play(); if (!IsAlive) Destroy(gameObject); PlayerHPBar.Instance?.Set(1f - (float) (Hp / MaxHp)); };
 	}
 
     void Update()
