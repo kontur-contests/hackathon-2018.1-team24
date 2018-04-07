@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using GameCoreLibrary;
 
 public class PlayerPhysics : MonoBehaviour {
 
@@ -15,7 +16,7 @@ public class PlayerPhysics : MonoBehaviour {
     {
         if (jump)
         {
-            rig.AddForce(new Vector2(0, 50));
+            rig.AddForce(new Vector2(0, 150));
         }
         var pos = new Vector2(rig.position.x + moveAmount.x, rig.position.y + moveAmount.y + Physics2D.gravity.y * Time.deltaTime);
         //rig.MovePosition(pos);

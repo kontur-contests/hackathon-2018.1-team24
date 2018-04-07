@@ -26,7 +26,7 @@ public class PlayerMovement : MonoBehaviour
 
         //даем силу движения игроку
         grounded = Physics2D.Linecast(transform.position, groundCheck.position, 1 << LayerMask.NameToLayer("Ground"));
-
+        
         if ((Input.GetKeyDown(KeyCode.W) || Input.GetMouseButtonDown(0)) && grounded)
         {
             rig.AddForce(Vector2.up * jumpSpeed);

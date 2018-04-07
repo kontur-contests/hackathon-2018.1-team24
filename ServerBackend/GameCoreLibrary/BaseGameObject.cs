@@ -7,15 +7,16 @@ namespace GameCoreLibrary
     {
         public abstract ObjectType ObjectType { get; set; }
         public Guid Id { get; set; }
-        public float X { get; set; }
-        public float Y { get; set; }
+        public Pos Pos { get; set; }
         public bool IsAlive { get; set; }
         public int HealthPoints { get; set; }
         public int HitPoints { get; set; }
+        public int Reward { get; set; }
 
         public int Hit(IGameObject gameObject)
         {
-            throw new NotImplementedException();
+            gameObject.HealthPoints -= HitPoints;
+            return HitPoints;
         }
 
         public float Height => MeasurementList.Measurements[ObjectType].Height;
@@ -23,7 +24,7 @@ namespace GameCoreLibrary
 
         public IGameObject Clone()
         {
-            var type = this.GetType();
+            var type = GetType();
             var instance = (IGameObject) Activator.CreateInstance(type);
             var properties = type.GetProperties();
             foreach (var propertyInfo in properties.Where(x => x.CanWrite))
