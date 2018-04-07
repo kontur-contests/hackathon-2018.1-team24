@@ -10,7 +10,7 @@ namespace GameCoreLibrary
         bool IsAlive { get; set; }
         int HealthPoints { get; set; }
         int HitPoints { get; set; }
-        int Hit();
+        int Hit(IGameObject gameObject);
 
         IGameObject Clone();
     }
