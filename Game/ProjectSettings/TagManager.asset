@@ -49,6 +49,9 @@ TagManager:
   - name: Level
     uniqueID: 328507207
     locked: 0
+  - name: Ghost
+    uniqueID: 423469725
+    locked: 0
   - name: Player
     uniqueID: 1752241713
     locked: 0

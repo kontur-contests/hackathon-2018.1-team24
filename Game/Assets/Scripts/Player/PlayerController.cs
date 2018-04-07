@@ -9,6 +9,8 @@ public class PlayerController : EnemyBase
     public PlayerMovement playerMovement;
     private Animator anim;
     public ParticleSystem particle;
+    public bool isAttack;
+    private float release;
 
 	void Start ()
     {
@@ -34,10 +36,14 @@ public class PlayerController : EnemyBase
                 {
                     var enemyBase = hit.collider.GetComponent<EnemyBase>();
                     enemyBase?.ApplyHit(5);
+                    isAttack = true;
+                    release = Time.time + 0.1f;
                     break;
                 }
             }
         }
-        
+
+        if (Time.time > release) isAttack = false;
+
 	}
 }
