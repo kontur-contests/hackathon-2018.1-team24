@@ -12,29 +12,27 @@ public class PlayerMovement : MonoBehaviour
     private Transform groundCheck;
     private bool grounded = false;
 
-    public PlayerPhysics playerPhysics;
+    public Rigidbody2D rig;
 
     private void Start()
     {
-        playerPhysics = GetComponent<PlayerPhysics>();
+        rig = GetComponent<Rigidbody2D>();
         groundCheck = transform.Find("groundCheck");
     }
 
     private void Update()
     {
-        var move = new Vector2(Input.GetAxis("Horizontal") * Time.deltaTime * maxSpeed, playerPhysics.rig.velocity.y);
+        var move = new Vector2(Input.GetAxis("Horizontal") * Time.deltaTime * maxSpeed, rig.velocity.y);
 
         //даем силу движения игроку
         grounded = Physics2D.Linecast(transform.position, groundCheck.position, 1 << LayerMask.NameToLayer("Ground"));
 
-        if ((Input.GetKeyDown(KeyCode.W) || Input.GetMouseButton(0)) && grounded)
+        if ((Input.GetKeyDown(KeyCode.W) || Input.GetMouseButtonDown(0)) && grounded)
         {
-            playerPhysics.rig.AddForce(Vector2.up * jumpSpeed);
+            rig.AddForce(Vector2.up * jumpSpeed);
         }
-
-
-
-        playerPhysics.rig.velocity = move;
+        
+        rig.velocity = move;
     }
 
 }
