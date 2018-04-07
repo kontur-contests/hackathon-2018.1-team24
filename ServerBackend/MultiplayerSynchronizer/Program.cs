@@ -29,12 +29,12 @@ namespace MultiplayerSynchronizer
                 socket.OnOpen = () =>
                 {
                     Console.WriteLine("Open!");
-                    StateStorage.Delete(socket);
-                    _webSocketConnections.Remove(socket);
+                    _webSocketConnections.Add(socket);
                 };
                 socket.OnClose = () =>
                 {
                     Console.WriteLine("Close!");
+                    StateStorage.Delete(socket);
                     _webSocketConnections.Remove(socket);
                 };
                 socket.OnMessage = message => { MessageReceived(socket, message); };
@@ -53,14 +53,24 @@ namespace MultiplayerSynchronizer
                     tuple.Value.Item1.Send(toSend).ConfigureAwait(false);
                 }
             }
+            timer.Start();
         }
 
 
         private static void MessageReceived(IWebSocketConnection socket, string message)
         {
-            var deserialized = (PlayerState) JsonConvert.DeserializeObject(message);
+            try
+            {
+                var deserialized = (PlayerState)JsonConvert.DeserializeObject(message);
 
-            StateStorage.UpdateOrAdd(socket, deserialized);
+                StateStorage.UpdateOrAdd(socket, deserialized);
+            }
+            catch (Exception)
+            {
+
+            }
+            
+
         }
 
         public static class StateStorage
@@ -73,10 +83,17 @@ namespace MultiplayerSynchronizer
             {
                 lock (playerStates)
                 {
-                    var dictionary = playerStates.FirstOrDefault(x => x.Value.Any(y => y.Key == socketConnection.ConnectionInfo.Id));
+                    try
+                    {
+                        var dictionary = playerStates.FirstOrDefault(x => x.Value.Any(y => y.Key == socketConnection.ConnectionInfo.Id));
 
-                    var state = dictionary.Value.FirstOrDefault(x => x.Key == socketConnection.ConnectionInfo.Id);
-                    dictionary.Value.Remove(state.Key);
+                        var state = dictionary.Value.FirstOrDefault(x => x.Key == socketConnection.ConnectionInfo.Id);
+                        dictionary.Value.Remove(state.Key);
+                    }
+                    catch(Exception e)
+                    {
+
+                    }
                 }
             }
 

@@ -31,6 +31,7 @@ public class LevelSyn : MonoBehaviour
         playerState.PlayerId = new Guid();
 
         socket = new WebSocket(url);
+        socket.Connect();
 
         socket.OnOpen += OnOpen;
         socket.OnClose += OnClose;
@@ -58,15 +59,18 @@ public class LevelSyn : MonoBehaviour
     private void OnOpen(object sender, EventArgs args)
     {
         isConnected = true;
+        print("Открыли");
     }
 
     private void OnClose(object sender, EventArgs args)
     {
         isConnected = false;
+        print("Закрыто");
     }
 
     private void OnMessage(object sender, MessageEventArgs e)
     {
+        print("Чето пришло");
         if (e.IsText)
         {
             var list = JsonConvert.DeserializeObject<List<PlayerState>>(e.Data);
