@@ -5,4 +5,7 @@
   <ItemGroup>
     <ProjectReference Include="..\GameCoreLibrary\GameCoreLibrary.csproj" />
   </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="Newtonsoft.Json" Version="11.0.2" />
+  </ItemGroup>
 </Project>
