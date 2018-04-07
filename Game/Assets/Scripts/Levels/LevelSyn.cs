@@ -31,11 +31,12 @@ public class LevelSyn : MonoBehaviour
         playerState.PlayerId = new Guid();
 
         socket = new WebSocket(url);
-        socket.Connect();
-
+        
         socket.OnOpen += OnOpen;
         socket.OnClose += OnClose;
         socket.OnMessage += OnMessage;
+
+        socket.Connect();
 
         InvokeRepeating("Send", 1f / rate, 1f / rate);
 

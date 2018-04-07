@@ -3,7 +3,6 @@
 /Game/[Oo]bj/
 /Game/[Bb]uild/
 /Game/[Bb]uilds/
-/Game/Assets/Plugins*
 # Visual Studio cache directory
 /Game/.vs/
 /Game/.idea/
