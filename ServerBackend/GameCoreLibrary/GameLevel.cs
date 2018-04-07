@@ -9,6 +9,10 @@ namespace GameCoreLibrary
 
         public List<IGameObject> GameObjects { get; set; }
 
+        public GameLevel()
+        {
+            
+        }
         public GameLevel(Level level)
         {
             GameObjects = CloneObjects(level.GameObjects?? new IGameObject[]{});

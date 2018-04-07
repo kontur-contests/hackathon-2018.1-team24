@@ -20,6 +20,7 @@ namespace BusinessLogic.Tests
                     {
                         ObjectType = ObjectType.Platform,
                         HitPoints = 10,
+                        
                         HealthPoints = 19,
                     },
                     new Enemy
@@ -29,7 +30,7 @@ namespace BusinessLogic.Tests
                     
                     
                 }
-            };
+            }; 
             var gameLevel = new GameLevel(level);
             var serialized = JsonConvert.SerializeObject(gameLevel);
             var deserialized = new GameLevelDeserializer();

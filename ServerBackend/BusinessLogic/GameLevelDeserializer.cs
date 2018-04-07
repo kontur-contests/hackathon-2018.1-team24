@@ -12,14 +12,16 @@ namespace BusinessLogic
         {
             var level = JObject.Parse(value);
             var jarray = (JArray) level["GameObjects"];
+            var gameLevel = new GameLevel();
             foreach (var element in jarray)
             {
                 Enum.TryParse(element["ObjectType"].ToString(), out ObjectType objectType);
                 var gameObject = (IGameObject) JsonConvert.DeserializeObject(value, Deserializers.Serializers[objectType]);
-                
+                gameLevel.GameObjects.Add(gameObject);
             }
 
-            return new GameLevel(new Level());
+            return gameLevel;
+
         }
     }    
 
