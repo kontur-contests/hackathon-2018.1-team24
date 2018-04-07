@@ -11,6 +11,8 @@ namespace GameCoreLibrary
         public Guid Id { get; set; }
         public Pos Pos { get; set; }
         public bool IsAlive { get; set; }
+        public float X { get; set; }
+        public float Y { get; set; }
         public int HealthPoints { get; set; }
         public int MaxHealthPoints { get; set; }
         public double HealthPercent => (double) HealthPoints / MaxHealthPoints;
@@ -21,8 +23,7 @@ namespace GameCoreLibrary
 
         public bool Hit(IGameObject gameObject)
         {
-            if (!gameObject.IsAlive || gameObject.Pos.DistTo(Pos) > HitRange)
-                return false;
+            
             gameObject.HealthPoints -= HitPoints;
             return true;
         }

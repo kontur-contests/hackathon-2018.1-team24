@@ -11,7 +11,8 @@ namespace GameCoreLibrary
             get;
         }
         bool IsAlive { get; }
-        Pos Pos { get; set; }
+        float X { get; set; }
+        float Y { get; set; }
         int HealthPoints { get; set; }
         int MaxHealthPoints { get; set; }
         double HealthPercent { get; }

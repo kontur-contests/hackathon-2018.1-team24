@@ -32,7 +32,6 @@ namespace GameCoreLibrary
                     GameObjects.Add(gObject);
                 else
                 {
-                    existing.Pos = gObject.Pos;
                     existing.HealthPoints = gObject.HealthPoints;
                 }
             }
