@@ -1,7 +1,10 @@
-﻿namespace BusinessLogic
+﻿using System.Collections.Generic;
+using GameCoreLibrary;
+
+namespace BusinessLogic
 {
-    public class ISynchronizer
+    public interface ISynchronizer
     {
-        
+        Game CreateSingleplayer(Player playerOne);
     }
 }

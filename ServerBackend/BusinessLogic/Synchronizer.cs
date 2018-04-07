@@ -8,19 +8,35 @@ namespace BusinessLogic
     {
         private readonly List<Game> games = new List<Game>();
 
-        private Game CreateNewGame(Player playerOne, Player playerTwo)
+        private Game CreateMultiplayer(Player playerOne, Player playerTwo)
         {
-            
-            if (playerOne.Id == playerTwo.Id) 
+            throw new NotImplementedException();
+            if (playerOne.Id == playerTwo.Id)
                 throw new ArgumentException();
 
             var game = new Game
             {
                 FirstPlayer = playerOne,
-                SecondPlayer = playerTwo,
-                Levels = new Queue<Level>()
+                Levels = new Queue<GameLevel>()
             };
-            game.Levels.Enqueue(new Level());
+            game.Levels.Enqueue(new GameLevel(new Level()));
+            games.Add(game);
+            return game;
+        }
+
+        public Game CreateSingleplayer(Player playerOne)
+        {
+            var game = new Game
+            {
+                FirstPlayer = playerOne,
+                Levels = new Queue<GameLevel>()
+            };
+            var levelGenerator = new LevelGenerator();
+            foreach (var level in levelGenerator.GenerateLevels())
+            {
+                game.Levels.Enqueue(level);
+            }
+
             games.Add(game);
             return game;
         }

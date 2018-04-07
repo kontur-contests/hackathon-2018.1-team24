@@ -5,10 +5,9 @@ namespace GameCoreLibrary
     public class Game
     {
         public Player FirstPlayer { get; set; }
-        public Player SecondPlayer { get; set; }
-        public Queue<Level> Levels { get; set; }
+        public Queue<GameLevel> Levels { get; set; }
 
-        public Level StartNextLevel()
+        public GameLevel StartNextLevel()
         {
             var nextLevel = Levels.Dequeue();
             return nextLevel;
