@@ -2,9 +2,8 @@
 
 namespace GameCoreLibrary
 {
-    public class LevelState
+    public class Level
     {
-        public List<Player> Players { get; set; }
         public List<IGameObject> GameObjects { get; set; }
     }
 }

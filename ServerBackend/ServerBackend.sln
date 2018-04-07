@@ -6,6 +6,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BusinessLogic", "BusinessLo
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GameCoreLibrary", "GameCoreLibrary\GameCoreLibrary.csproj", "{3D1E8E4A-CE02-4A9E-BABC-47EEB7A9E7CB}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GameCoreLibraryTests", "GameCoreLibraryTests\GameCoreLibraryTests.csproj", "{B67BE12B-FF38-4B00-BB8E-61F5F42A01D1}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -24,5 +26,9 @@ Global
 		{3D1E8E4A-CE02-4A9E-BABC-47EEB7A9E7CB}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3D1E8E4A-CE02-4A9E-BABC-47EEB7A9E7CB}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3D1E8E4A-CE02-4A9E-BABC-47EEB7A9E7CB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B67BE12B-FF38-4B00-BB8E-61F5F42A01D1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B67BE12B-FF38-4B00-BB8E-61F5F42A01D1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B67BE12B-FF38-4B00-BB8E-61F5F42A01D1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B67BE12B-FF38-4B00-BB8E-61F5F42A01D1}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
