@@ -1,8 +1,6 @@
-﻿using System;
-
-namespace GameCoreLibrary
+﻿namespace GameCoreLibrary
 {
-    public class Player
+    public class Player : BaseGameObject 
     {
     }
 }
