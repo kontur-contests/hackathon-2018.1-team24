@@ -32,29 +32,34 @@ namespace BusinessLogic
             {
                 1, new Level
                 {
-                    GameObjects = new IGameObject[]
-                    {
-                        new StaticObject
-                        {
-                            ObjectType = ObjectType.Platform,
-                            HitPoints = 20,
-                            HealthPoints = 30,
-                            IsAlive = true,
-                            Pos = new Pos(20, 20)
-                        },
-                        UnitsFactory.NewGuard(),
-                        UnitsFactory.NewKachok(),
-                        new StaticObject
-                        {
-                            ObjectType = ObjectType.Platform,
-                            HitPoints = 20,
-                            HealthPoints = 30,
-                            IsAlive = true,
-                            Pos = new Pos(200, 20)
-                        },
-                    }.Concat(UnitsFactory.NewBugsLevel1()).ToArray()
+                    GameObjects = GetLevel1()
                 }
             }
         };
+
+        private static IGameObject[] GetLevel1()
+        {
+            return new IGameObject[]
+            {
+                new StaticObject
+                {
+                    ObjectType = ObjectType.Platform,
+                    HitPoints = 20,
+                    HealthPoints = 30,
+                    IsAlive = true,
+                    Pos = new Pos(20, 20)
+                },
+                UnitsFactory.NewGuard(),
+                UnitsFactory.NewKachok(),
+                new StaticObject
+                {
+                    ObjectType = ObjectType.Platform,
+                    HitPoints = 20,
+                    HealthPoints = 30,
+                    IsAlive = true,
+                    Pos = new Pos(200, 20)
+                },
+            }.Concat(UnitsFactory.NewBugsLevel1()).ToArray();
+        }
     }
 }
