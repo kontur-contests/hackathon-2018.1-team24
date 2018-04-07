@@ -16,12 +16,12 @@ namespace BusinessLogic.Units
                 HealthPoints = 50,
                 Id = Guid.NewGuid(),
                 Reward = 2,
-                Speed = 2,
+                Speed = 0,
                 ObjectType = ObjectType.Guard
             };
         }
 
-        public static Enemy NewKachok()
+        public static Enemy NewClawn()
         {
             return new Enemy()
             {
@@ -32,7 +32,8 @@ namespace BusinessLogic.Units
                 Id = Guid.NewGuid(),
                 Reward = 3,
                 Speed = 2,
-                ObjectType = ObjectType.Guard
+                MoveRange = 20,
+                ObjectType = ObjectType.Clawn
             };
         }
 
@@ -49,6 +50,7 @@ namespace BusinessLogic.Units
                     Id = Guid.NewGuid(),
                     Reward = 1,
                     Speed = 1,
+                    MoveRange = 10,
                     ObjectType = ObjectType.Bug
                 };
             }

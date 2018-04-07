@@ -17,6 +17,7 @@ namespace GameCoreLibrary
         public int HitPoints { get; set; }
         public double Speed { get; set; }
         public int Reward { get; set; }
+        public double MoveRange { get; set; }
 
         public bool Hit(IGameObject gameObject)
         {

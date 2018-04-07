@@ -21,6 +21,8 @@ namespace GameCoreLibrary
         double Speed { get; set; }
         int Reward { get; set; }
 
+        double MoveRange { get; set; }
+
         bool Hit(IGameObject gameObject);
         IGameObject Clone();
     }
