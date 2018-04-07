@@ -1,6 +1,11 @@
 fileFormatVersion: 2
+<<<<<<< HEAD
 guid: e56ec7d086ba74f419be0f593aaa2dd5
 timeCreated: 1523106800
+=======
+guid: 167d46f2186f4c944bb8a2fd171c5684
+timeCreated: 1523107218
+>>>>>>> Бизнес логика
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName: {}
@@ -31,7 +36,11 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
+<<<<<<< HEAD
     filterMode: 2
+=======
+    filterMode: -1
+>>>>>>> Бизнес логика
     aniso: -1
     mipBias: -1
     wrapU: 1
@@ -43,9 +52,15 @@ TextureImporter:
   spriteMode: 1
   spriteExtrude: 1
   spriteMeshType: 1
+<<<<<<< HEAD
   alignment: 9
   spritePivot: {x: 0.26959226, y: 0.49999994}
   spritePixelsToUnits: 10
+=======
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+>>>>>>> Бизнес логика
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -67,6 +82,7 @@ TextureImporter:
     allowsAlphaSplitting: 0
     overridden: 0
     androidETC2FallbackOverride: 0
+<<<<<<< HEAD
   - buildTarget: Standalone
     maxTextureSize: 2048
     resizeAlgorithm: 0
@@ -97,6 +113,8 @@ TextureImporter:
     allowsAlphaSplitting: 0
     overridden: 0
     androidETC2FallbackOverride: 0
+=======
+>>>>>>> Бизнес логика
   spriteSheet:
     serializedVersion: 2
     sprites: []

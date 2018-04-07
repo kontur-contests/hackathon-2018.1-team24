@@ -12,6 +12,5 @@ namespace GameCoreLibrary
             var nextLevel = Levels.Dequeue();
             return nextLevel;
         }
-        
     }
 }

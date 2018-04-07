@@ -18,8 +18,7 @@ namespace GameCoreLibraryTests
                 PlayerName = "ololo",
                 Score = 12345,
                 Speed = 12345,
-                X = 12344,
-                Y = 123455,
+                Pos = new Pos(12344, 123455),
                 HitPoints = 1221,
                 Id = Guid.NewGuid(),
             };

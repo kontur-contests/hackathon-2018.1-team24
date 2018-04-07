@@ -39,8 +39,7 @@ namespace BusinessLogic
                             HitPoints = 20,
                             HealthPoints = 30,
                             IsAlive = true,
-                            X = 20,
-                            Y = 20,
+                            Pos = new Pos(20, 20)
                         },
                         new StaticObject
                         {
@@ -48,8 +47,7 @@ namespace BusinessLogic
                             HitPoints = 20,
                             HealthPoints = 30,
                             IsAlive = true,
-                            X = 200,
-                            Y = 20,
+                            Pos = new Pos(200, 20)
                         },
                     }
                 }

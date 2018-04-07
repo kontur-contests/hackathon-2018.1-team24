@@ -4,6 +4,8 @@ namespace GameCoreLibrary
 {
     public class Player : BaseGameObject
     {
+        public const int HitRange = 100;
+
         public string PlayerName { get; set; }
         public int Score { get; set; }
 
