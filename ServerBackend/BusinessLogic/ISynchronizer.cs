@@ -6,5 +6,7 @@ namespace BusinessLogic
     public interface ISynchronizer
     {
         Game CreateSingleplayer(Player playerOne);
+
+        
     }
 }

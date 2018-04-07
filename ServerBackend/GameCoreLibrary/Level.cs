@@ -5,6 +5,6 @@ namespace GameCoreLibrary
     public class Level
     {
         public IGameObject[] GameObjects { get; set; }
-        public LevelFloor LevelFloor { get; }
+        public LevelFloor LevelFloor { get; set; }
     }
 }
