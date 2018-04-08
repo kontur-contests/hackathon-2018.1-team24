@@ -2576,7 +2576,7 @@ Prefab:
       value: 7
       objectReference: {fileID: 0}
     m_RemovedComponents:
-    - {fileID: 114733890795692662, guid: a2b2c70ec7df1904bbf21021f582fef4, type: 2}
+    - {fileID: 0}
   m_ParentPrefab: {fileID: 100100000, guid: a2b2c70ec7df1904bbf21021f582fef4, type: 2}
   m_IsPrefabParent: 0
 --- !u!114 &1712082498 stripped
@@ -2727,7 +2727,7 @@ MonoBehaviour:
   isConnected: 0
   playerController: {fileID: 1712082498}
   levelFloor: 1
-  rate: 3
+  rate: 10
   players: []
   prefabPlayer: {fileID: 1758778960044766, guid: d48f45c79bab4a246848328e1543c4b3,
     type: 2}

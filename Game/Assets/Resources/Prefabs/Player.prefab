@@ -25,7 +25,6 @@ GameObject:
   - component: {fileID: 58173110911784698}
   - component: {fileID: 50514893191822044}
   - component: {fileID: 95407337473076734}
-  - component: {fileID: 114733890795692662}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -230,23 +229,7 @@ MonoBehaviour:
     hp: 50
   playerMovement: {fileID: 0}
   particle: {fileID: 198478733203205976}
---- !u!114 &114733890795692662
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1401659522637386}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c8aa63c8a85929c4799ce2764f9023fd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  levelItem:
-    baseGameObject: 0
-    enemyParams:
-      speed: 0
-      hit: 0
-      hp: 0
+  isAttack: 0
 --- !u!114 &114906073918419360
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3662,7 +3645,7 @@ ParticleSystemRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -1114380367
-  m_SortingLayer: 4
+  m_SortingLayer: 5
   m_SortingOrder: 0
   m_RenderMode: 1
   m_SortMode: 0
@@ -3714,7 +3697,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 1752241713
-  m_SortingLayer: 3
+  m_SortingLayer: 4
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: e56ec7d086ba74f419be0f593aaa2dd5, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}

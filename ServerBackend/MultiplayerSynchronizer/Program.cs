@@ -15,7 +15,7 @@ namespace MultiplayerSynchronizer
         private static ConcurrentDictionary<Guid, (IWebSocketConnection, PlayerState)> webSocketConnections;
 
 
-        private static Timer timer = new Timer(300);
+        private static Timer timer = new Timer(100);
 
         static void Main(string[] args)
         {
@@ -61,7 +61,7 @@ namespace MultiplayerSynchronizer
         {
             try
             {
-                var deserialized = (PlayerState)JsonConvert.DeserializeObject(message);
+                var deserialized = JsonConvert.DeserializeObject<PlayerState>(message);
 
                 StateStorage.UpdateOrAdd(socket, deserialized);
             }

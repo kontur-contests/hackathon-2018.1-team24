@@ -25,10 +25,14 @@ public class LevelSyn : MonoBehaviour
 
     public GameObject prefabPlayer;
 
+    public List<List<PlayerState>> syncs;
+
     private void Start()
     {
+        syncs = new List<List<PlayerState>>();
         playerState = new PlayerState();
-        playerState.PlayerId = new Guid();
+        var g = Guid.NewGuid();
+        playerState.PlayerId = g;
 
         socket = new WebSocket(url);
         
@@ -71,40 +75,61 @@ public class LevelSyn : MonoBehaviour
 
     private void OnMessage(object sender, MessageEventArgs e)
     {
-        print("Чето пришло");
         if (e.IsText)
         {
-            var list = JsonConvert.DeserializeObject<List<PlayerState>>(e.Data);
-            var addList = new List<PlayerState>();
-            var removeList = new List<PlayerSync>();
-
-            foreach (var p in players)
+            lock (syncs)
             {
-                var item = list.Find(x => x.PlayerId == p.playerState.PlayerId);
-                if (item == null)
+                var listStats = JsonConvert.DeserializeObject<List<PlayerState>>(e.Data);
+                syncs.Add(listStats);
+            }
+        }
+    }
+
+    private void FixedUpdate()
+    {
+        lock (syncs)
+        {
+            if (syncs.Count > 0)
+            {
+                var listStats = syncs[0];
+                var removeList = new List<PlayerSync>();
+
+                foreach (var state in listStats)
                 {
-                    addList.Add(item);
-                    p.UpdateState(item, rate);
+                    var objs = FindObjectsOfType<PlayerSync>();
+                    var find = false;
+                    if (state.PlayerId != playerState.PlayerId)
+                    {
+                        foreach (var obj in objs)
+                        {
+                            if (obj.playerState.PlayerId == state.PlayerId)
+                            {
+                                obj.UpdateState(state, rate);
+                                find = true;
+                            }
+                        }
+                        if (!find)
+                        {
+                            var player = Instantiate(prefabPlayer, new Vector3(state.X, state.Y), Quaternion.identity).GetComponent<PlayerSync>();
+                            player.UpdateState(state, rate);
+                            players.Add(player);
+                        }
+                    }
                 }
-            }
 
-            foreach (var p in list)
-            {
-                var item = players.Find(x => x.playerState.PlayerId == p.PlayerId);
-                if (item != null) removeList.Add(item);
-            }
 
-            foreach (var state in addList)
-            {
-                var player = Instantiate(prefabPlayer, new Vector3(state.X, state.Y), Quaternion.identity).GetComponent<PlayerSync>();
-                player.UpdateState(state, rate);
-                players.Add(player);
-            }
+                //foreach (var player in FindObjectsOfType<PlayerSync>())
+                //{
+                //    var item = listStats.Find(x => x.PlayerId == player.playerState.PlayerId);
+                //    if (item == null) removeList.Add(player);
+                //}
 
-            foreach (var remove in removeList)
-            {
-                Destroy(remove.gameObject);
-                players.Remove(remove);
+                //foreach (var remove in removeList)
+                //{
+                //    Destroy(remove.gameObject);
+                //    players.Remove(remove);
+                //}
+                syncs.RemoveAt(0);
             }
         }
     }
