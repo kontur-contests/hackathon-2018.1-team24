@@ -281,6 +281,9 @@
     <Compile Include="Assets\Scripts\Player\PlayerPhysics.cs" />
     <Compile Include="Assets\Scripts\Readme.cs" />
     <Compile Include="Assets\Scripts\UI\BitcoinCountUI.cs" />
+    <Compile Include="Assets\Scripts\UI\LoadGameAndMusic.cs" />
+    <Compile Include="Assets\Scripts\UI\MainMenu.cs" />
+    <Compile Include="Assets\Scripts\UI\SoundManager.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="GenerateTargetFrameworkMonikerAttribute" />

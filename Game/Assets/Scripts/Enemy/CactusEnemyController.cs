@@ -22,6 +22,7 @@ public class CactusEnemyController : EnemyBase
             var enemy = collision.gameObject.GetComponent<EnemyBase>();
             enemy?.ApplyHit(enemyParams.hit);
             release = Time.time + 1f;
+            SoundManager.Instance.Play("punch");
         }
     }
 

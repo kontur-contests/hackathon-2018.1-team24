@@ -48,6 +48,7 @@ public class ClownController : EnemyBase
                     enemyBase.ApplyHit(5);
                     release = Time.time + 2f;
                     anim.SetTrigger("Attack");
+                    SoundManager.Instance.Play("clown");
                 }
                 break;
             }

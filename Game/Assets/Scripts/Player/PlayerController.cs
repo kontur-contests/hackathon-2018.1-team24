@@ -12,23 +12,39 @@ public class PlayerController : EnemyBase
     public bool isAttack;
     private float release;
 
-	void Start ()
+    public GameObject punchButton;
+
+    void Start ()
     {
         playerMovement = GetComponent<PlayerMovement>();
         anim = GetComponent<Animator>();
         Set(enemyParams.speed, enemyParams.hit, enemyParams.hp);
-        OnChangeHP += delegate { particle.Play(); if (!IsAlive) Destroy(gameObject); PlayerHPBar.Instance?.Set(1f - (float) (Hp / MaxHp)); };
+        OnChangeHP += delegate { particle.Play(); if (!IsAlive) Application.LoadLevel("GameOver"); PlayerHPBar.Instance?.Set(1f - (float) (Hp / MaxHp)); };
 	}
 
     void Update()
     {
 
         anim.SetBool("Run", playerMovement.walk);
-        
 
-        if (Input.GetKeyDown(KeyCode.RightControl))
+        var punch = false;
+        if (Input.GetMouseButtonDown(0))
+        {
+            var hitsButton = Physics2D.RaycastAll(Camera.main.ScreenToWorldPoint(Input.mousePosition), Vector3.forward);
+            foreach (var hit in hitsButton)
+            {
+                if (hit.collider != null)
+                {
+                    if (hit.collider.gameObject == punchButton) punch = true;
+                }
+            }
+        }
+
+        if (Input.GetKeyDown(KeyCode.RightControl) || punch)
         {
             anim.SetTrigger("Attack");
+            isAttack = true;
+            release = Time.time + 0.2f;
             var hits = Physics2D.LinecastAll(transform.position, transform.position + new Vector3(3f, 0));
             foreach (var hit in hits)
             {
@@ -36,8 +52,7 @@ public class PlayerController : EnemyBase
                 {
                     var enemyBase = hit.collider.GetComponent<EnemyBase>();
                     enemyBase?.ApplyHit(5);
-                    isAttack = true;
-                    release = Time.time + 0.2f;
+                    SoundManager.Instance.Play("punch");
                     break;
                 }
             }
@@ -58,10 +73,12 @@ public class PlayerController : EnemyBase
                 if (spr != null) spr.sprite = null;
                 BitcoinCountUI.Instance?.Add();
                 Destroy(collision.gameObject, 1f);
+                SoundManager.Instance.Play("coin");
             }
         }
         if (collision.tag == "Lift")
         {
+            SoundManager.Instance.Play("lift");
             var levelNum = Application.loadedLevel;
             Application.LoadLevel(levelNum + 1);
         }
