@@ -78,6 +78,7 @@ public class LevelSyn : MonoBehaviour
         if (e.IsText)
         {
             lock (syncs)
+            print(list.Count);
             {
                 var listStats = JsonConvert.DeserializeObject<List<PlayerState>>(e.Data);
                 syncs.Add(listStats);
