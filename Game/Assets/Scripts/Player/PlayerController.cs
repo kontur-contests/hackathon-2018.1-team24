@@ -37,7 +37,7 @@ public class PlayerController : EnemyBase
                     var enemyBase = hit.collider.GetComponent<EnemyBase>();
                     enemyBase?.ApplyHit(5);
                     isAttack = true;
-                    release = Time.time + 0.1f;
+                    release = Time.time + 0.2f;
                     break;
                 }
             }
@@ -46,4 +46,25 @@ public class PlayerController : EnemyBase
         if (Time.time > release) isAttack = false;
 
 	}
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.tag == "Bitcoin")
+        {
+            collision.GetComponent<ParticleSystem>()?.Play();
+            foreach (Transform t in collision.transform)
+            {
+                var spr = t.GetComponent<SpriteRenderer>();
+                if (spr != null) spr.sprite = null;
+                BitcoinCountUI.Instance?.Add();
+                Destroy(collision.gameObject, 1f);
+            }
+        }
+        if (collision.tag == "Lift")
+        {
+            var levelNum = Application.loadedLevel;
+            Application.LoadLevel(levelNum + 1);
+        }
+    }
+
 }

@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Enemy
   - Bitcoin
+  - Lift
   layers:
   - Default
   - TransparentFX

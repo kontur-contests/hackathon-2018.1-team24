@@ -46,6 +46,14 @@ public class LevelSyn : MonoBehaviour
 
     }
 
+    private void OnDestroy()
+    {
+        if (socket != null)
+        {
+            if (isConnected) socket.Close();
+        }
+    }
+
     public void Send()
     {
         if (isConnected)
