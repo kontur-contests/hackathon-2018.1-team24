@@ -44,16 +44,33 @@ namespace MultiplayerSynchronizer
 
         private static void TimerElapsed(object sender, ElapsedEventArgs elapsedEventArgs)
         {
-            foreach (var state in StateStorage.playerStates)
+
+            try
             {
-                var states = state.Value.Select(x => x.Value.Item2).ToArray();
-                var toSend = JsonConvert.SerializeObject(states);
-                foreach (var tuple in state.Value)
+                lock (StateStorage.playerStates)
                 {
-                    tuple.Value.Item1.Send(toSend).ConfigureAwait(false);
+                    foreach (var state in StateStorage.playerStates)
+                    {
+                    
+                        var states = state.Value.Select(x => x.Value.Item2).ToArray();
+                        var toSend = JsonConvert.SerializeObject(states);
+                        foreach (var tuple in state.Value)
+                        {
+                            if (!tuple.Value.Item1.IsAvailable)
+                            {
+                                StateStorage.Delete(tuple.Value.Item1);
+                                continue;
+                            }
+                            tuple.Value.Item1.Send(toSend).ConfigureAwait(false);
+                        }
+                    }
                 }
             }
-            timer.Start();
+            catch (Exception e)
+            {
+                Console.WriteLine(e);
+                
+            }
         }
 
 
@@ -67,10 +84,7 @@ namespace MultiplayerSynchronizer
             }
             catch (Exception)
             {
-
             }
-            
-
         }
 
         public static class StateStorage
@@ -90,9 +104,8 @@ namespace MultiplayerSynchronizer
                         var state = dictionary.Value.FirstOrDefault(x => x.Key == socketConnection.ConnectionInfo.Id);
                         dictionary.Value.Remove(state.Key);
                     }
-                    catch(Exception e)
+                    catch (Exception e)
                     {
-
                     }
                 }
             }
@@ -106,12 +119,9 @@ namespace MultiplayerSynchronizer
                     {
                         playerStates[level] = new Dictionary<Guid, (IWebSocketConnection, PlayerState)>();
                     }
-                }
 
-                lock (playerStates[level])
-                {
                     var playerStateLevels = playerStates[level];
-                    playerStateLevels[webSocketConnection.ConnectionInfo.Id] = (webSocketConnection,playerState);
+                    playerStateLevels[webSocketConnection.ConnectionInfo.Id] = (webSocketConnection, playerState);
                 }
             }
         }
